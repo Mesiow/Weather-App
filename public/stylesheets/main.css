@@ -1,0 +1,38 @@
+body{
+   /* background: #005C97;  /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to top, #363795, #005C97);  /* Chrome 10-25, Safari 5.1-6 */
+   /* background: linear-gradient(to top, #363795, #005C97); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   background: #43cea2;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to top, #185a9d, #43cea2);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   
+}
+
+.container{
+    padding-top: 10%;
+}
+
+.ui .header{
+    text-align: center;
+}
+
+.ui .grid{
+    text-align: center;
+    padding-top: 25px;
+}
+
+
+.search-bar{
+    text-align: center;
+    padding-top:10%;
+}
+
+.heading-data{
+    font-weight:600;
+    font-size: large;
+}
+
+.icon{
+    text-align: center;
+    margin-top: -5%;
+}

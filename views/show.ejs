@@ -1,0 +1,44 @@
+<%-include("partials/header")%>
+<link href="/stylesheets/main.css" rel="stylesheet" type="text/css">
+
+<div class="container">
+	<div class="ui raised very padded text container segment">
+		<div class="icon"><img src="http://openweathermap.org/img/wn/<%=weather_data.weather[0].icon%>@2x.png"></div>
+  		<h2 class="ui header"><%=weather_data.weather[0].main%></h2>
+  		<h3 class="ui header" style="font-weight: normal; margin-top: 0;"><%=weather_data.name%>, <%=weather_data.sys.country%></h3>
+
+
+  		<!--Grid of Weather info-->
+  		<div class="ui equal width grid">
+  			<div class="column heading-data">Wind</div>
+  			<div class="column heading-data">Temperature</div>
+  			<div class="column heading-data">Humidity</div>
+  			<div class="equal width row">
+    			<div id="wind"class="column"><%=(weather_data.wind.speed * 2.237).toFixed(1)%> mph</div> <!--convert wind speed from meters/sec to mph-->
+    			<div id="temp"class="column">
+            <!--change temp from kelvin to fahrenheit-->
+            <%=((weather_data.main.temp - 273.15) * 9/5 + 32).toFixed(1)%> <!--keep one decimal place using toFixed(1)-->
+            <span>&#8457;</span>
+          </div>
+    			<!--<div id="prec"class="column"><%=weather_data.rain%></div>-->
+          <div id="humidity" class="column"><%=weather_data.main.humidity%>%</div>
+  			</div>
+		</div>
+
+  		<!--search bar-->
+  		<div class="search-bar">
+  			<div class="ui icon input">
+  				<!--<input type="text" location-search placeholder="Search...">-->
+  				<form action="/weather" method="POST"> <!--post input to our weather route-->
+  					<div class="ui icon input">
+  						<input type="text" name="city" placeholder="Search...">
+ 						<i class="circular search link icon"></i>
+					</div>
+  				</form>
+			</div>
+		</div>
+</div>
+
+	</div>
+</div>
+<%-include("partials/footer")%>

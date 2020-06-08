@@ -1,0 +1,43 @@
+<%-include("partials/header")%>
+<link href="/stylesheets/main.css" rel="stylesheet" type="text/css">
+
+<div class="container">
+	<div class="ui raised very padded text container segment">
+		<div class="icon"><img src="http://openweathermap.org/img/wn/01d@2x.png"></div>
+  		<h2 class="ui header">Enter a Location</h2>
+  		<h3 class="ui header" style="font-weight: normal; margin-top: 0;">To Find the Weather</h3>
+
+
+  		<!--Grid of Weather info-->
+  		<div class="ui equal width grid">
+  			<div class="column heading-data">Wind</div>
+  			<div class="column heading-data">Temperature</div>
+  			<div class="column heading-data">Precipitation</div>
+  			<div class="equal width row">
+    			<div class="column">TBD</div>
+    			<div class="column">TBD</div>
+    			<div class="column">TBD</div>
+  			</div>
+		</div>
+
+  		<!--search bar-->
+  		<div class="search-bar">
+  			<div class="ui icon input">
+  				<!--<input type="text" location-search placeholder="Search...">-->
+  				<form action="/weather" method="POST"> <!--post input to our weather route-->
+  					<div class="ui icon input">
+  						<input type="text" name="city" placeholder="Search...">
+ 						<i class="circular search link icon"></i>
+					</div>
+  				</form>
+			</div>
+		</div>
+</div>
+
+	</div>
+</div>
+
+
+
+
+<%-include("partials/footer")%>

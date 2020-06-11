@@ -32,11 +32,9 @@ app.get("/", function(req, res){
 
 app.post("/weather", function(req, res){
     var city = req.body.city; 
-    console.log(city);
     //add + if city has a space
     if(city.indexOf(' ') >= 0){
         city = city.split(' ').join('+'); //add space between
-        console.log(city);
     }
 
      //fetch weather data with api key at url and render
@@ -44,7 +42,13 @@ app.post("/weather", function(req, res){
      console.log(weatherDataByCity);
      //fetch and render
      fetch(weatherDataByCity).then(res => res.json()).then(
-        json => res.render("show", {weather_data: json}) //pass weather data in to update ejs file
+        json => {
+            if(json.cod === "404") {//City not found
+                //redirect to main
+                res.redirect("/");
+            }
+            res.render("show", {weather_data: json})//pass weather data in to update ejs file
+         } 
     ).catch((reason) => {
         console.log("Handle rejected promise (" + reason + ") here");
     });
